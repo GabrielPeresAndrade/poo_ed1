@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Arvore.o \
 	${OBJECTDIR}/Corretor.o \
 	${OBJECTDIR}/Dicionario.o \
 	${OBJECTDIR}/Palavra.o \
@@ -65,6 +66,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalho_poo_ed1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalho_poo_ed1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Arvore.o: Arvore.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Arvore.o Arvore.cpp
 
 ${OBJECTDIR}/Corretor.o: Corretor.cpp
 	${MKDIR} -p ${OBJECTDIR}

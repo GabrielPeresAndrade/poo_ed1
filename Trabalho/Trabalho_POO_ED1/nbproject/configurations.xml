@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
+      <itemPath>Arvore.h</itemPath>
       <itemPath>Corretor.h</itemPath>
       <itemPath>Dicionario.h</itemPath>
       <itemPath>Palavra.h</itemPath>
@@ -12,6 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
+      <itemPath>Arvore.cpp</itemPath>
       <itemPath>Corretor.cpp</itemPath>
       <itemPath>Dicionario.cpp</itemPath>
       <itemPath>Palavra.cpp</itemPath>
@@ -44,6 +46,10 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Arvore.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Arvore.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Corretor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Corretor.h" ex="false" tool="3" flavor2="0">
@@ -83,6 +89,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Arvore.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Arvore.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Corretor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Corretor.h" ex="false" tool="3" flavor2="0">
