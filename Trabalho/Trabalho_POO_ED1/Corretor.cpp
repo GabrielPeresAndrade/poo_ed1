@@ -1,4 +1,5 @@
 #include "Corretor.h"
+
 Corretor::Corretor() {
 }
 

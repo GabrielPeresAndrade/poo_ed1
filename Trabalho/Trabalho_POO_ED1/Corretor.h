@@ -7,7 +7,7 @@ public:
     Corretor(const Corretor& orig);
     virtual ~Corretor();
 private:
-
+    int a;
 };
 
 #endif 
