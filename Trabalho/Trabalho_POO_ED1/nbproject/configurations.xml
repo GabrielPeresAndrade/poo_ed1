@@ -4,10 +4,18 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
+      <itemPath>Corretor.h</itemPath>
+      <itemPath>Dicionario.h</itemPath>
+      <itemPath>Palavra.h</itemPath>
+      <itemPath>Texto.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
+      <itemPath>Corretor.cpp</itemPath>
+      <itemPath>Dicionario.cpp</itemPath>
+      <itemPath>Palavra.cpp</itemPath>
+      <itemPath>Texto.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -36,6 +44,22 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Corretor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Corretor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Dicionario.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dicionario.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Palavra.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Palavra.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Texto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Texto.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -59,6 +83,22 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Corretor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Corretor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Dicionario.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dicionario.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Palavra.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Palavra.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Texto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Texto.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
