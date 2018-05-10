@@ -1,6 +1,6 @@
 /*
  * A classe Arvore deve ter na interface apenas os métodos: vazia, insere,
- *  remove e Busca.
+ * remove e Busca.
  */
 
 using namespace std;

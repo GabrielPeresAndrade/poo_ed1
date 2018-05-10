@@ -1,10 +1,10 @@
 build/Debug/Cygwin-Windows/main.o: main.cpp Corretor.h Dicionario.h \
- Palavra.h Texto.h
+ Texto.h Palavra.h
 
 Corretor.h:
 
 Dicionario.h:
 
-Palavra.h:
-
 Texto.h:
+
+Palavra.h:
