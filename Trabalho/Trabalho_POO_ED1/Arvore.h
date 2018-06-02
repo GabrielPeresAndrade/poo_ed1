@@ -14,8 +14,10 @@ public:
     //Metodos Gets e Sets
     
     //Metodos
-    
-
+    bool vazia();
+    bool insere();
+    bool remove();
+    //Busca é do tipo da Arvore
 private:
 
 };
