@@ -27,9 +27,11 @@ int main(int argc, char** argv)
     
     Texto *t1 = new Texto();
     t1->setArquivo("texte.txt");
-    t1->gravarTexto();
     t1->carregarTexto();
-    
+    string a="eae";
+    string b="eba";
+    t1->alterarPalavra(a,b);
+    t1->gravarTexto();
     //DICIONARIO//
     
     //CORRETOR//

@@ -11,10 +11,21 @@ Texto::Texto()
 
 Texto::Texto(const Texto& orig) 
 {
+    Texto();
+    int i;
+    for (i = 0 ; ((i < 10000)  && (this->lista[i]!= NULL)); i++)
+    {
+        this->lista[i]= orig.lista[i] ;
+    }
 }
 
 Texto::~Texto() 
 {
+    int i;
+    for (i = 0 ; i < 10000 ; i++)
+    {
+        this->lista[i]= NULL ;
+    }
 }
 
 void Texto::carregarTexto()
@@ -31,14 +42,18 @@ void Texto::carregarTexto()
         while (!feof(arq))
         {
             //Le palavra por palavra
+            s[0]='\0';
             fscanf(arq,"%s",s);
-            this->adcLista(s);
+            if (s[0]!='\0')
+                this->adcLista(s);
         } 
         fclose(arq);
     }
 }
 void Texto::gravarTexto()
 {
+   int i;
+   string s;
    FILE *arq;
    arq = fopen(this->getArquivo().c_str(),"w");  
    if(arq == NULL)
@@ -47,8 +62,11 @@ void Texto::gravarTexto()
     }
    else
    {
-       fprintf(arq,"%s","kkk eae boy");
-       fclose(arq);
+        for (i = 0 ; (( i < 10000) && (this->lista[i]!= NULL)); i++)
+        {
+            fprintf(arq,"%s ",(this->lista[i])->getPalavra().c_str());
+        }
+        fclose(arq);
    }
 }
 string Texto::getArquivo()
@@ -71,6 +89,18 @@ bool Texto::adcLista(string palavra)
             Palavra *p1 = new Palavra(palavra);
             this->lista[i] = p1;
             i = 10000;
+        }
+    }
+}
+
+void Texto::alterarPalavra(string tirar,string colocar)
+{
+    int i;
+    for (i = 0 ; (( i < 10000) && (this->lista[i]!= NULL)); i++)
+    {
+        if ((this->lista[i])->getPalavra() == tirar)
+        {
+            (this->lista[i])->setPalavra(colocar);
         }
     }
 }

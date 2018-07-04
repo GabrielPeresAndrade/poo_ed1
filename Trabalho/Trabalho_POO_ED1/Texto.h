@@ -19,6 +19,7 @@ public:
     string getArquivo();
     void setArquivo(string Arquivo);
     //Metodos
+    void alterarPalavra(string tirar,string colocar);
     void carregarTexto();
     void gravarTexto();
     bool adcLista(string palavra);
