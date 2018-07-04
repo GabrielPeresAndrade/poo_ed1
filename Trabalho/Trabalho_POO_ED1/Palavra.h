@@ -11,6 +11,7 @@ class Palavra {
 public:
     //Construtores e destrutores
     Palavra();
+    Palavra(string p);
     Palavra(const Palavra& orig);
     virtual ~Palavra();
     
@@ -20,7 +21,8 @@ public:
     
     //Metodos
     bool operator==(Palavra &p1);
-
+    bool semelhante(Palavra p2);
+    int tamanho();
 private:
     string palavra;
 };

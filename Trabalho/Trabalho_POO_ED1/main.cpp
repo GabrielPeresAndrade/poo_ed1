@@ -13,6 +13,30 @@ using namespace std;
 
 int main(int argc, char** argv) 
 {
+    //PALAVRA//
+    
+    Palavra *p1 = new Palavra();
+    Palavra *p2 = new Palavra();
+    p1->setPalavra("atum!");
+    p2->setPalavra("atim!");  
+    
+    if (p1->semelhante(*p2)==1)
+        cout<<"Palavras Semelhantes";
+    
+    //TEXTO//
+    
+    Texto *t1 = new Texto();
+    t1->setArquivo("texte.txt");
+    t1->gravarTexto();
+    t1->carregarTexto();
+    
+    //DICIONARIO//
+    
+    //CORRETOR//
+    
+    //ARVORE//
+    
+    
     return 0;
 }
 

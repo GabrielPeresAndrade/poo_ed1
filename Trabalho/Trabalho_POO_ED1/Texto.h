@@ -16,10 +16,12 @@ public:
     virtual ~Texto();
     
     //Metodos Gets e Sets
-    
+    string getArquivo();
+    void setArquivo(string Arquivo);
     //Metodos
     void carregarTexto();
     void gravarTexto();
+    bool adcLista(string palavra);
 private:
     //Lista de palavras   (vetor de ponteiros)
     Palavra *lista[10000];
