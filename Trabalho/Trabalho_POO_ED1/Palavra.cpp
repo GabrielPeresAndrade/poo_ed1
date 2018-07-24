@@ -41,8 +41,7 @@ string Palavra::getPalavra()
 
 bool Palavra::semelhante(Palavra p2)
 {
-    //Depois de ter a arvore provavelmente isso irá mudar
-    int i,j,t,k;
+    /*int i,j,t,k;
     i = this->tamanho();
     j = p2.tamanho();
     string a= this->getPalavra();
@@ -62,6 +61,27 @@ bool Palavra::semelhante(Palavra p2)
         return true;
     }
     return false;
+     */
+    string a = this->getPalavra();
+    string b = p2.getPalavra();
+    if (this->tamanho()>=2)
+    {
+        if (p2.tamanho()>=2)
+        {
+            if ((a[0]==b[0])&&(a[1]==b[1]))
+                return true;
+        }else{
+            return false;
+        }
+    }else{
+        if((p2.tamanho()==1)&&(this->tamanho()==1))
+                if (a[0]==b[0])
+                    return true;
+    }
+    
+    return false;
+        
+    
 }
 
 int Palavra::tamanho()
