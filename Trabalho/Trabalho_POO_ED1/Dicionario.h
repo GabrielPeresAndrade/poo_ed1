@@ -7,7 +7,8 @@
  * implementado por meio de uma árvore balanceada. 
  * Você poderá escolher entre AVL e vermelho-preta.
  */
-
+#include <string>
+#include "Palavra.h"
 using namespace std;
 
 class Dicionario {
@@ -17,10 +18,17 @@ public:
     Dicionario(const Dicionario& orig);
     virtual ~Dicionario();
     //Metodos Gets e Sets
-    
+    void setArquivo(string nome);
     //Metodos
-    
+    bool inserirPalavra(Palavra palavra);
+    bool consultarPalavra(Palavra palavra);
+    //lista de palavras semelhantes ????
+    bool dicionarioVazio();
+    bool lerArquivo();
+
 
 private:
-
+    string arquivo;
+    //nó raiz ????
+    
 };
