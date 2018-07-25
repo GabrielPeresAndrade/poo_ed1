@@ -9,24 +9,24 @@ Arvore::Arvore(const Arvore& orig) {
 Arvore::~Arvore() {
 }
 
-bool Arvore::vazia(Avl *raiz)
+bool Arvore::vazia(Arvore *raiz)
 {
     if(raiz == NULL)
     	return 1;
     else
     	return 0;
 }
-bool Arvore::insere(Avl *raiz, Palavra palavra)   
+bool Arvore::insere(Arvore *raiz, Palavra palavra)   
 {
     true;
 }
 
-bool Arvore::consulta(Palavra palavra, Avl *raiz);
+bool Arvore::consulta(Palavra palavra,Arvore *raiz)
 {
 	if (raiz == NULL)				//caso arvore vazia e nao encontrou palavra
 		return 0;												
 
-	Avl *aux = raiz;
+	Arvore *aux = raiz;
 
 	while (aux){
 		if (palavra == raiz->dado){
@@ -42,7 +42,7 @@ bool Arvore::consulta(Palavra palavra, Avl *raiz);
 
 }
 
-bool Avore::altura(Avl *raiz)
+bool Arvore::altura(Arvore *raiz)
 {
 	if(raiz == NULL)
 		return 0;

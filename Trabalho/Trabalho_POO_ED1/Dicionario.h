@@ -8,7 +8,7 @@
  * Você poderá escolher entre AVL e vermelho-preta.
  */
 #include <string>
-#include "Palavra.h"
+#include "Arvore.h"
 using namespace std;
 
 class Dicionario {
@@ -21,7 +21,7 @@ public:
     void setArquivo(string nome);
     //Metodos
     bool inserirPalavra(Palavra palavra);
-    bool consultarPalavra(Palavra palavra);
+    bool consultarPalavra(Palavra palavra,Arvore *raiz);
     //lista de palavras semelhantes ????
     bool dicionarioVazio();
     bool lerArquivo();
