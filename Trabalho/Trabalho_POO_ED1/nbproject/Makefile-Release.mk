@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Arvore.o \
 	${OBJECTDIR}/Corretor.o \
 	${OBJECTDIR}/Dicionario.o \
+	${OBJECTDIR}/Erros.o \
 	${OBJECTDIR}/Palavra.o \
 	${OBJECTDIR}/Texto.o \
 	${OBJECTDIR}/main.o
@@ -81,6 +82,11 @@ ${OBJECTDIR}/Dicionario.o: Dicionario.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dicionario.o Dicionario.cpp
+
+${OBJECTDIR}/Erros.o: Erros.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Erros.o Erros.cpp
 
 ${OBJECTDIR}/Palavra.o: Palavra.cpp
 	${MKDIR} -p ${OBJECTDIR}

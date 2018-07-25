@@ -3,6 +3,8 @@
  * verifique se duas palavras são semelhantes e ter o operador == sobrecarregado
  * para verificar se duas palavras são idênticas.
  */
+#ifndef __TrabalhoPOO_ED1__Palavra__
+#define __TrabalhoPOO_ED1__Palavra__
 #include <string>
 
 using namespace std;
@@ -30,3 +32,4 @@ public:
 private:
     string palavra;
 };
+#endif
