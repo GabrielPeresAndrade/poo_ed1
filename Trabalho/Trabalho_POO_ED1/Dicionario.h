@@ -9,6 +9,7 @@
  */
 #include <string>
 //#include "Palavra.h"
+#include "Arvore.h"
 using namespace std;
 
 class Dicionario {
@@ -28,6 +29,6 @@ public:
 
 private:
     string arquivo;
-    //nó raiz ????
+    Arvore *raiz;
     
 };

@@ -25,9 +25,6 @@ bool Dicionario::inserirPalavra(Palavra palavra)
 bool Dicionario::consultarPalavra(Palavra palavra)
 {
 }
-bool Dicionario::dicionarioVazio()
-{
-}
 bool Dicionario::lerArquivo()
 {
     //PAREI AQUI
@@ -47,8 +44,7 @@ bool Dicionario::lerArquivo()
             fscanf(arq,"%s",s);
             if (s[0]!='\0')
                 // ADICIONA NA ARVORE
-                s[0]=s[0];
-            //só para nao dar erro
+                this->raiz->insere();
         } 
         fclose(arq);
     }

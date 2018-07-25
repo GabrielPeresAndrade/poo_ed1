@@ -2,7 +2,7 @@
  * A classe Arvore deve ter na interface apenas os métodos: vazia, insere,
  * remove e Busca.
  */
-
+#include "Palavra.h"
 using namespace std;
 
 class Arvore {
@@ -19,5 +19,8 @@ public:
     bool remove();
     //Busca é do tipo da Arvore
 private:
-
+    Palavra dado;
+    Arvore *esq;
+    Arvore *dir;
+    
 };
