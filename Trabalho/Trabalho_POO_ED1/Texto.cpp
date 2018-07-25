@@ -50,12 +50,12 @@ void Texto::carregarTexto()
         fclose(arq);
     }
 }
-void Texto::gravarTexto()
+void Texto::gravarTexto(string arquivo)
 {
    int i;
    string s;
    FILE *arq;
-   arq = fopen(this->getArquivo().c_str(),"w");  
+   arq = fopen(arquivo.c_str(),"w");  
    if(arq == NULL)
     {
       //deu ruim para criar

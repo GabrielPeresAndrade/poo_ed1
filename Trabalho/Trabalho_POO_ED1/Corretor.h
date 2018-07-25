@@ -25,7 +25,12 @@ public:
     //Metodos Gets e Sets
     
     //Metodos
-    
+    void corrigirPalavra();
+    void ignorarErro();
+    void selecionarPalavra();
+    void adicionarPalavraDic();
+    void apresentarErro();
+    void apresentarContexto();
 private:
     Dicionario dicionario;
     Texto texto;

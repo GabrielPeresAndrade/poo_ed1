@@ -21,7 +21,7 @@ public:
     //Metodos
     void alterarPalavra(string tirar,string colocar);
     void carregarTexto();
-    void gravarTexto();
+    void gravarTexto(string arquivo);
     bool adcLista(string palavra);
 private:
     //Lista de palavras   (vetor de ponteiros)

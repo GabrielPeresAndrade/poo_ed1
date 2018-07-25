@@ -4,10 +4,7 @@
  */
 #include <iostream>
 #include <cstdlib>
-//#include "Palavra.h"
 #include "Corretor.h"
-#include "Dicionario.h"
-#include "Texto.h"
 
 using namespace std;
 
@@ -34,8 +31,9 @@ int main(int argc, char** argv)
     t1->carregarTexto();
     string a="eae";
     string b="eba";
+    string arq="textoMod.txt";
     t1->alterarPalavra(a,b);
-    t1->gravarTexto();
+    t1->gravarTexto(arq);
     //DICIONARIO//
     
     //CORRETOR//
