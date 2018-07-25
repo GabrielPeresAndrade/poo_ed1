@@ -13,7 +13,7 @@ public:
     //Construtores e destrutores
     Texto();
     Texto(const Texto& orig);
-    virtual ~Texto();
+    virtual ~Texto();       
     
     //Metodos Gets e Sets
     string getArquivo();
