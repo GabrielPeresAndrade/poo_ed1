@@ -21,6 +21,10 @@ public:
     
     //Metodos
     bool operator==(Palavra &p1);
+    bool operator>(Palavra &p1);
+    bool operator<(Palavra &p1);
+    bool operator>=(Palavra &p1);
+    bool operator<=(Palavra &p1);
     bool semelhante(Palavra p2);
     int tamanho();
 private:

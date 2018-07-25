@@ -28,6 +28,38 @@ bool Palavra::operator==(Palavra& p1)
     }
     return 0;
 }
+bool Palavra::operator>(Palavra& p1)
+{
+    if (p1.palavra < this->palavra)
+    {
+        return  1;
+    }
+    return 0;
+}
+bool Palavra::operator<(Palavra& p1)
+{
+    if (p1.palavra > this->palavra)
+    {
+        return  1;
+    }
+    return 0;
+}
+bool Palavra::operator>=(Palavra& p1)
+{
+    if (p1.palavra <= this->palavra)
+    {
+        return  1;
+    }
+    return 0;
+}
+bool Palavra::operator<=(Palavra& p1)
+{
+    if (p1.palavra >= this->palavra)
+    {
+        return  1;
+    }
+    return 0;
+}
 
 void Palavra::setPalavra(string palavra)
 {

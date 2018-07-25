@@ -19,6 +19,10 @@ int main(int argc, char** argv)
     Palavra *p2 = new Palavra();
     p1->setPalavra("atum!");
     p2->setPalavra("atim!");  
+    if (*p1>*p2)
+    {
+        cout<<"atum > atim\n";
+    }
     
     if (p1->semelhante(*p2)==1)
         cout<<"Palavras Semelhantes";
