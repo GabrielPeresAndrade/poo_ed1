@@ -14,9 +14,10 @@ public:
     //Metodos Gets e Sets
     
     //Metodos
-    bool vazia();
-    bool insere();
-    bool remove();
+    bool vazia(Avl *raiz);
+    bool insere(Avl *raiz, Palavra palavra);
+    bool consulta(Avl *raiz);
+    bool altura(Avl *raiz);
     //Busca é do tipo da Arvore
 private:
     Palavra dado;
