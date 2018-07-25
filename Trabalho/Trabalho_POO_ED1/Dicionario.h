@@ -19,16 +19,15 @@ public:
     virtual ~Dicionario();
     //Metodos Gets e Sets
     void setArquivo(string nome);
+    string getArquivo();
     //Metodos
     bool inserirPalavra(Palavra palavra);
     bool consultarPalavra(Palavra palavra,Arvore *raiz);
-    //lista de palavras semelhantes ????
-    bool dicionarioVazio();
     bool lerArquivo();
 
 
 private:
     string arquivo;
-    //nó raiz ????
+    Arvore *raiz;
     
 };
