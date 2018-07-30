@@ -37,6 +37,7 @@ bool Dicionario::lerArquivo()
     if (arq == NULL)
     {
         //deu merda para abrir
+        throw(Excessao(ErroDeLeitura));
 }
     else
     {
@@ -47,7 +48,8 @@ bool Dicionario::lerArquivo()
             fscanf(arq,"%s",s);
             if (s[0]!='\0')
                 // ADICIONA NA ARVORE
-                this->raiz->insere();
+                //this->raiz->insere();
+                arq=arq;
         } 
         fclose(arq);
     }

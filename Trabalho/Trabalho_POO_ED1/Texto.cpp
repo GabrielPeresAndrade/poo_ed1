@@ -36,6 +36,7 @@ void Texto::carregarTexto()
     if (arq == NULL)
     {
         //deu merda para abrir
+        throw(Excessao(ErroDeLeitura));
     }
     else
     {
@@ -59,6 +60,7 @@ void Texto::gravarTexto(string arquivo)
    if(arq == NULL)
     {
       //deu ruim para criar
+       throw(Excessao(ErroDeGravar));
     }
    else
    {
