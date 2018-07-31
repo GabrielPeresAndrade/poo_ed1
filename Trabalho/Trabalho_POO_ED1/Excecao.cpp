@@ -1,15 +1,15 @@
-#include "Excessao.h"
+#include "Excecao.h"
 
-Excessao::Excessao() {
+Excecao::Excecao() {
 }
 
-Excessao::Excessao(const Excessao& orig) {
+Excecao::Excecao(const Excecao& orig) {
 }
 
-Excessao::~Excessao() {
+Excecao::~Excecao() {
 }
 
-void Excessao::Msg()
+void Excecao::Msg()
 {
     switch(this->numErro)
     {
@@ -34,8 +34,8 @@ void Excessao::Msg()
     }       
     
 }
-Excessao::Excessao(int numErro)
+Excecao::Excecao(int numErro)
 {
-    Excessao();
+    Excecao();
     this->numErro = numErro;
 }

@@ -1,5 +1,5 @@
 build/Debug/Cygwin-Windows/Dicionario.o: Dicionario.cpp Dicionario.h \
- Arvore.h Palavra.h Excessao.h
+ Arvore.h Palavra.h Excecao.h
 
 Dicionario.h:
 
@@ -7,4 +7,4 @@ Arvore.h:
 
 Palavra.h:
 
-Excessao.h:
+Excecao.h:

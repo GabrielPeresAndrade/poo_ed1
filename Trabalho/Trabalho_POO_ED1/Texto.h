@@ -6,7 +6,7 @@
  */
 #include <string>
 #include "Palavra.h"
-#include "Excessao.h"
+#include "Excecao.h"
 using namespace std;
 
 class Texto {

@@ -37,7 +37,7 @@ bool Dicionario::lerArquivo()
     if (arq == NULL)
     {
         //deu merda para abrir
-        throw(Excessao(ErroDeLeitura));
+        throw(Excecao(ErroDeLeitura));
 }
     else
     {

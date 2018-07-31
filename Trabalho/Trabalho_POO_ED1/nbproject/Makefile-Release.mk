@@ -39,7 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Corretor.o \
 	${OBJECTDIR}/Dicionario.o \
 	${OBJECTDIR}/Erros.o \
-	${OBJECTDIR}/Excessao.o \
+	${OBJECTDIR}/Excecao.o \
 	${OBJECTDIR}/Palavra.o \
 	${OBJECTDIR}/Texto.o \
 	${OBJECTDIR}/main.o
@@ -89,10 +89,10 @@ ${OBJECTDIR}/Erros.o: Erros.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Erros.o Erros.cpp
 
-${OBJECTDIR}/Excessao.o: Excessao.cpp
+${OBJECTDIR}/Excecao.o: Excecao.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Excessao.o Excessao.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Excecao.o Excecao.cpp
 
 ${OBJECTDIR}/Palavra.o: Palavra.cpp
 	${MKDIR} -p ${OBJECTDIR}

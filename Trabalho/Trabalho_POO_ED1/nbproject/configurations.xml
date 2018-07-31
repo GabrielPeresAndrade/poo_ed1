@@ -9,7 +9,7 @@
       <itemPath>Dicionario.h</itemPath>
       <itemPath>Erro.h</itemPath>
       <itemPath>Erros.h</itemPath>
-      <itemPath>Excessao.h</itemPath>
+      <itemPath>Excecao.h</itemPath>
       <itemPath>Palavra.h</itemPath>
       <itemPath>Texto.h</itemPath>
     </logicalFolder>
@@ -20,7 +20,7 @@
       <itemPath>Corretor.cpp</itemPath>
       <itemPath>Dicionario.cpp</itemPath>
       <itemPath>Erros.cpp</itemPath>
-      <itemPath>Excessao.cpp</itemPath>
+      <itemPath>Excecao.cpp</itemPath>
       <itemPath>Palavra.cpp</itemPath>
       <itemPath>Texto.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -69,9 +69,9 @@
       </item>
       <item path="Erros.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Excessao.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Excecao.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Excessao.h" ex="false" tool="3" flavor2="0">
+      <item path="Excecao.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Palavra.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -122,9 +122,9 @@
       </item>
       <item path="Erros.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Excessao.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Excecao.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Excessao.h" ex="false" tool="3" flavor2="0">
+      <item path="Excecao.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Palavra.cpp" ex="false" tool="1" flavor2="0">
       </item>

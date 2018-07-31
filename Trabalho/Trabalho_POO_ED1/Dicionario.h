@@ -9,7 +9,7 @@
  */
 #include <string>
 #include "Arvore.h"
-#include "Excessao.h"
+#include "Excecao.h"
 using namespace std;
 
 class Dicionario {
