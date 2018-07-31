@@ -30,6 +30,6 @@ private:
     Palavra dado;
     Arvore *esq;
     Arvore *dir;
-    int altura;
+    int alt;
     
 };

@@ -39,7 +39,13 @@ int main(int argc, char** argv)
     //CORRETOR//
     
     //ARVORE//
+    Arvore *raiz = new Arvore();
     
+    if(raiz->insere(raiz, *p1))
+        printf("inserido com sucesso\n");
+    
+    else
+        printf("fudeu parcero\n");
     
     return 0;
 }

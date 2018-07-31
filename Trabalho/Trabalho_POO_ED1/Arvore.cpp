@@ -7,12 +7,6 @@ Arvore::Arvore(const Arvore& orig) {
 }
 
 Arvore::~Arvore() {
-	Arvore *aux = *raiz;
-
-	while(aux != NULL);
-		delete(raiz);
-		aux = aux-
-
 }
 
 bool Arvore::vazia(Arvore *raiz)
@@ -24,53 +18,55 @@ bool Arvore::vazia(Arvore *raiz)
 }
 bool Arvore::insere(Arvore *raiz, Palavra palavra)   
 {
-    if (raiz == NULL)
-    	return false;
-
-    Arvore *novo = new (sizeof Arvore);
+    printf("auau");
+    Arvore *novo = new Arvore;
 
     novo->dado = palavra;
     novo->esq = NULL;
     novo->dir = NULL;
-    novo->altura = 0;
+    novo->alt = 0;
 
 
-    else if (*raiz == NULL)		//inserçao na primeira posiçao
+    if (raiz == NULL)		//inserçao na primeira posiçao
     { 							
-    	*raiz = novo;
+    	raiz = novo;
+        raiz->alt = (maior(altura(raiz->esq), altura(raiz->dir)) + 1);
     	return true;
     }
-
-    Arvore *aux = raiz;
-    Arvore *ant = NULL;
-
+    
+    
     else{
+        Arvore *aux = raiz;
+        Arvore *ant = NULL;
     	while(aux != NULL){
 
-    		*ant = aux;
+    		ant = aux;
 
     		if (palavra == aux->dado){ // palavra ja existente na arvore
     			return false;
     		}
 
     		else if (palavra > aux->dado){
-    			if(insere(aux->dir))
+    			if(insere((aux->dir), palavra))
     				if(bal(aux) >= 2 || bal(aux) <= -2)
-    					if(palavra > raiz->esq->info)
+    					if(palavra > raiz->esq->dado)
     						rot_DD(raiz);
     					else
     						rot_DE(raiz);
     		}
 
     		else if (palavra < aux->dado){
-    			if(insere(aux->esq))
+    			if(insere((aux->esq), palavra))
     				if(bal(aux) >= 2 || bal(aux) <= -2)
-    					if(palavra < raiz->esq->info)
+    					if(palavra < raiz->esq->dado)
     						rot_EE(raiz);
     					else
     						rot_ED(raiz);
     		}
     	}
+        
+        aux->alt = (maior(altura(aux->esq), altura(aux->dir)) + 1);
+         
 
     	if (palavra > ant->dado){
     		ant->dir = novo;
@@ -83,8 +79,6 @@ bool Arvore::insere(Arvore *raiz, Palavra palavra)
     	}
 
     }
-
-    aux->altura = maior(altura(aux->esq), altura(aux->dir) + 1);
 
 }
 
@@ -109,17 +103,17 @@ bool Arvore::consulta(Palavra palavra,Arvore *raiz)
 
 }
 
-int Arvore::altura(Arvore *no)
+int Arvore::altura(Arvore *raiz)
 {
-	if(no == NULL)
+	if(raiz == NULL)
 		return -1;
 	else
-		return no->altura;
+		return raiz->alt;
 }
 
 int Arvore::bal(Arvore *raiz)
 {
-	return (altura(no->esq) - altura(no->dir));
+	return (altura(raiz->esq) - altura(raiz->dir));
 }
 
 
@@ -137,10 +131,10 @@ bool Arvore::rot_EE(Arvore *raiz)
 	Arvore *aux;
 
 	aux = raiz->esq;
-	raiz->esq = no->dir;
-	no->dir = *raiz
-	raiz->altura = maior(altura(raiz->esq), altura(raiz->dir) + 1);
-	raiz = no;
+	raiz->esq = aux->dir;
+	aux->dir = raiz;
+	raiz->alt = maior(altura(raiz->esq), altura(raiz->dir) + 1);
+	raiz = aux;
 
 	return true;
 }
@@ -150,10 +144,10 @@ bool Arvore::rot_DD(Arvore *raiz)
 	Arvore *aux;
 
 	aux = raiz->dir;
-	raiz->dir = no->esq;
-	no->esq = raiz;
-	raiz->altura = maior(altura(raiz->dir), altura(raiz->esq) + 1);
-	raiz = no;
+	raiz->dir = aux->esq;
+	aux->esq = raiz;
+	raiz->alt = maior(altura(raiz->dir), altura(raiz->esq) + 1);
+	raiz = aux;
 
 	return true;
 }
