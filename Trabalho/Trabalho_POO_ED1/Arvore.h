@@ -17,11 +17,19 @@ public:
     bool vazia(Arvore *raiz);
     bool insere(Arvore *raiz, Palavra palavra);
     bool consulta(Palavra palavra, Arvore *raiz);
-    bool altura(Arvore *raiz);
+    int altura(Arvore *raiz);
+    int bal(Arvore *raiz);
+    int maior(int x, int y);
+    bool rot_EE(Arvore *raiz);
+    bool rot_DD(Arvore *raiz);
+    bool rot_ED(Arvore *raiz);
+    bool rot_DE(Arvore *raiz);
+
     //Busca é do tipo da Arvore
 private:
     Palavra dado;
     Arvore *esq;
     Arvore *dir;
+    int altura;
     
 };
