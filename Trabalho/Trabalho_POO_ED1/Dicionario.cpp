@@ -25,7 +25,8 @@ bool Dicionario::inserirPalavra(Palavra palavra)
 
 bool Dicionario::consultarPalavra(Palavra palavra, Arvore *raiz)
 {
-    raiz->consulta(palavra, raiz);
+   //raiz->consulta(palavra);
+    return true;
 }
 
 bool Dicionario::lerArquivo()
