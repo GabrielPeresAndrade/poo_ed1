@@ -6,22 +6,38 @@
 using namespace std;
 
 class Arvore {
+    
+    struct no
+    {
+        Palavra dado;
+        no *esq;
+        no *dir;
+        int alt;
+    };
+
+    no* raiz;
+    
 public:
     //Construtores e destrutores
     Arvore();
     Arvore(const Arvore& orig);
     virtual ~Arvore();
     //Metodos Gets e Sets
-    
+    no* getRaiz();
     //Metodos
-    bool vazia(Arvore *raiz);
-    bool insere(Arvore *raiz, Palavra palavra);
-    bool consulta(Palavra palavra, Arvore *raiz);
-    bool altura(Arvore *raiz);
-    //Busca é do tipo da Arvore
-private:
-    Palavra dado;
-    Arvore *esq;
-    Arvore *dir;
+    bool vazia();
+    void desmatar(no* p);
+    bool insere1(Palavra palavra);
+    no* insere(no* p, Palavra palavra);
+    bool consulta(Palavra palavra);
+    int altura(no* p);
+    int maior(int x, int y);
+    no* rot_EE(no* p);
+    no* rot_DD(no* p);
+    no* rot_ED(no* p);
+    no* rot_DE(no* p);
+    void emordem(no* p);
+    void preordem(no* p);
     
+   
 };

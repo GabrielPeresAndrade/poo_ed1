@@ -1,57 +1,175 @@
+#include <iostream>
 #include "Arvore.h"
 
+using namespace std;
+
 Arvore::Arvore() {
+    raiz = NULL;
 }
 
 Arvore::Arvore(const Arvore& orig) {
+    raiz == NULL;
 }
 
 Arvore::~Arvore() {
+    desmatar(raiz);
 }
 
-bool Arvore::vazia(Arvore *raiz)
+
+void Arvore::desmatar(no* p)
 {
-    if(raiz == NULL)
+        if(p == NULL)
+            return;
+        desmatar(p->esq);
+        desmatar(p->dir);
+        delete p;
+}
+  
+bool Arvore::vazia()
+{
+    if(this == NULL)
     	return 1;
     else
     	return 0;
 }
-bool Arvore::insere(Arvore *raiz, Palavra palavra)   
+Arvore::no* Arvore::insere(no* p, Palavra palavra)   
 {
-    true;
+    if(p == NULL)
+    {
+        p = new no;
+        p->dado = palavra;
+        p->alt = 0;
+        p->esq = NULL;
+        p->dir = NULL;
+        
+        return p;
+    }
+    
+    else if(palavra < p->dado)
+    {
+       p->esq = insere(p->esq, palavra);
+       
+       if(altura(p->esq) - altura(p->dir) == 2)
+       {
+           if(palavra < p->esq->dado)
+               p = rot_EE(p);
+           else
+               p = rot_ED(p);
+       }
+    }
+    else if(palavra > p->dado)
+    {
+        p->dir = insere(p->dir, palavra);
+        
+        if(altura(p->dir) - altura(p->esq) == 2)
+        {
+            if(palavra > p->dir->dado)
+                p = rot_DD(p);
+            else
+                p = rot_DE(p);
+        }
+    }
+
+    p->alt = maior(altura(p->esq), altura(p->dir)) + 1;
+    
+    return p;
 }
 
-bool Arvore::consulta(Palavra palavra,Arvore *raiz)
+
+bool Arvore::insere1(Palavra palavra)
 {
-	if (raiz == NULL)				//caso arvore vazia e nao encontrou palavra
-		return 0;												
-
-	Arvore *aux = raiz;
-
-	while (aux){
-		if (palavra == raiz->dado){
-			return 1;
-		}
-		else if (palavra < raiz->dado)
-			aux = aux->esq;
-
-		else
-			aux = aux->dir;
-	}
-	return 0;
-
+    raiz = insere(raiz, palavra);
+    return true;
 }
 
-bool Arvore::altura(Arvore *raiz)
+int Arvore::altura(no* p)
 {
-	if(raiz == NULL)
-		return 0;
+    if(p == NULL)
+        return 0;
+    else
+        return maior(altura(p->esq), altura(p->dir)) + 1;
+}
 
-	int altura_e = altura(raiz->esq);
-	int altura_d = altura(raiz->dir);
+int Arvore::maior(int x, int y)
+{
+    if(x > y)
+        return x;
+    else
+        return y;
+}
 
-	if(altura_e > altura_d)
-		return(altura_e + 1);
-	else
-		return(altura_d + 1);
+Arvore::no* Arvore::rot_EE(no* p)
+    {
+    no* aux;
+    
+    aux = p->esq;
+    p->esq = aux->dir;
+    aux->dir = p;
+  
+    return aux;
+    }
+Arvore::no* Arvore::rot_DD(no* p)
+{
+    no* aux;
+    
+    aux = p->dir;
+    p->dir = aux->esq;
+    aux->esq = p;
+    
+    
+    return aux;   
+}
+
+Arvore::no* Arvore::rot_ED(no* p)
+{
+     no* aux;
+     no* aux2;
+    
+    aux = p->esq;
+    aux2 = aux->dir;
+    p->esq = aux2->dir;
+    aux->dir = aux2->esq;
+    aux2->dir = p;
+    aux2->esq = aux;
+    
+    return aux2;
+}
+Arvore::no* Arvore::rot_DE(no* p)
+{
+    no* aux;
+    no*aux2;
+    
+    aux = p->dir;
+    aux2 = aux->esq;
+    p->dir = aux2->esq;
+    aux->esq = aux2->dir;
+    aux2->esq = p;
+    aux2->dir = aux;
+    
+    return aux2;
+    
+}
+
+void Arvore::emordem(no* p)
+{
+    if(p == NULL)
+        return;
+    
+    emordem(p->esq);
+    cout << p->dado.getPalavra() << " " << endl;
+    emordem(p->dir);
+}
+void Arvore::preordem(no* p)
+{   
+    if(p == NULL)
+        return;
+    
+    cout << p->dado.getPalavra() << " " << endl;
+    preordem(p->esq);
+    preordem(p->dir);
+}
+
+Arvore::no* Arvore::getRaiz()
+{
+    return(this->raiz);
 }
