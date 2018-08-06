@@ -22,9 +22,9 @@ public:
     void setArquivo(string nome);
     string getArquivo();
     //Metodos
-    bool inserirPalavra(Palavra palavra);
-    bool consultarPalavra(Palavra palavra,Arvore *raiz);
-    bool lerArquivo();
+    bool inserirPalavra(Palavra palavra, Arvore*p);
+    bool consultarPalavra(Palavra palavra, Arvore *p);
+    bool lerArquivo(Arvore *p);
 
 
 private:

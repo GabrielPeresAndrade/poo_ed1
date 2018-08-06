@@ -60,21 +60,5 @@ int main(int argc, char** argv)
    p->emordem(p->getRaiz());
    
    //CORRETOR//
-   
-   FILE *texto;
-   texto = fopen("texto.txt", "r");
-   char s[100];
-   if (texto == NULL){
-       throw(Excecao(ErroDeLeitura));
-   }
-   
-   while (!feof){
-       s[0]='\0';
-            fscanf(texto,"%s",s);
-            if (s[0]!='\0')
-            {
-                Palavra *ptxt = new Palavra();
-                ptxt->setPalavra(s);
-            }
-       
+   return(0);
 }

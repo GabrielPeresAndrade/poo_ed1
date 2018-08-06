@@ -19,16 +19,22 @@ string Dicionario::getArquivo()
     return(this->arquivo);
 }
 
-bool Dicionario::inserirPalavra(Palavra palavra)
+bool Dicionario::inserirPalavra(Palavra palavra,Arvore *p)
 {
+    p->insere1(palavra);
 }
 
-bool Dicionario::consultarPalavra(Palavra palavra, Arvore *raiz)
+bool Dicionario::consultarPalavra(Palavra palavra, Arvore *p)
 {
-    raiz->consulta(palavra, raiz);
+    
+    if (p->consulta1(palavra))
+        return true;
+    
+    else 
+        return false;
 }
 
-bool Dicionario::lerArquivo()
+bool Dicionario::lerArquivo(Arvore *p)
 {
     //PAREI AQUI
     FILE *arq;
@@ -38,7 +44,7 @@ bool Dicionario::lerArquivo()
     {
         //deu merda para abrir
         throw(Excecao(ErroDeLeitura));
-}
+    }
     else
     {
         while (!feof(arq))
@@ -47,9 +53,14 @@ bool Dicionario::lerArquivo()
             s[0]='\0';
             fscanf(arq,"%s",s);
             if (s[0]!='\0')
-                // ADICIONA NA ARVORE
-                //this->raiz->insere();
-                arq=arq;
+            {
+                Palavra *p1 = new Palavra();
+                p1->setPalavra(s);
+                if (p->insere1(*p1))
+                {
+                    arq=arq;
+                }
+            }
         } 
         fclose(arq);
     }

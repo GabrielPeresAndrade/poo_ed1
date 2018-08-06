@@ -78,7 +78,7 @@ Arvore::no* Arvore::insere(no* p, Palavra palavra)
 
 bool Arvore::insere1(Palavra palavra)
 {
-    if (this->consulta1(palavra))
+    if (!this->consulta1(palavra))
     {
         raiz = insere(raiz, palavra);
         return true;
