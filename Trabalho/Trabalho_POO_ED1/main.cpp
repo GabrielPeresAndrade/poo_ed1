@@ -14,28 +14,15 @@ int main(int argc, char** argv)
     
     Palavra *p1 = new Palavra();
     Palavra *p2 = new Palavra();
-    Palavra *p3 = new Palavra();
-    Palavra *p4 = new Palavra();
-    Palavra *p5 = new Palavra();
-    Palavra *p6 = new Palavra();
-    Palavra *p7 = new Palavra();
-    Palavra *p8 = new Palavra();
-    p1->setPalavra("g");
-    p2->setPalavra("b");  
-    p3->setPalavra("f");
-    p4->setPalavra("e");
-    p5->setPalavra("z");
-    p6->setPalavra("c");
-    p7->setPalavra("d");
-    p8->setPalavra("t");
-    
+    p1->setPalavra("atum!");
+    p2->setPalavra("atim!");  
     if (*p1>*p2)
     {
         cout<<"atum > atim\n";
     }
     
     if (p1->semelhante(*p2)==1)
-        cout<<"Palavras Semelhantes" <<endl;
+        cout<<"Palavras Semelhantes";
     
     //TEXTO//
     
@@ -52,19 +39,8 @@ int main(int argc, char** argv)
     //CORRETOR//
     
     //ARVORE//
-    Arvore p;
     
     
-   p.insere1(*p1);
-   p.insere1(*p2);
-   p.insere1(*p3);
-   p.insere1(*p4);
-   p.insere1(*p5);
-   p.insere1(*p6);
-   p.insere1(*p7);
-   p.insere1(*p8);
-
-    p.preordem(p.getRaiz());
-    p.emordem(p.getRaiz());
-
+    return 0;
 }
+
