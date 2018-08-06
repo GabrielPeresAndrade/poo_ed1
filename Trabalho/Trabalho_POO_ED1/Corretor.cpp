@@ -24,13 +24,17 @@ void selecionarPalavra(){
     
 }
 
-void adicionarPalavraDic(){
-
-    
+bool adicionarPalavraDic(Palavra palavra, Arvore *p){
+    p->insere1(palavra);
     
 }
 
-void apresentarErro(){
+bool apresentarErro(Palavra palavra, Arvore *p){
+    if(!p->consulta1(palavra))
+        return true;
+    
+    else
+        return false;
     
 }
 
