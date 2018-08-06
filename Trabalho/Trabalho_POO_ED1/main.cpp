@@ -52,22 +52,19 @@ int main(int argc, char** argv)
     //CORRETOR//
     
     //ARVORE//
-    Arvore *p = new Arvore();
+    Arvore p;
     
     
-if((p->insere1(*p1))||
-   (p->insere1(*p2))||
-   (p->insere1(*p3))||
-   (p->insere1(*p4))||
-   (p->insere1(*p5))||
-   (p->insere1(*p6))||
-   (p->insere1(*p7))||
-   (p->insere1(*p8)))
-{
-    cout<<"Deu Bom" <<endl;
-}
+   p.insere1(*p1);
+   p.insere1(*p2);
+   p.insere1(*p3);
+   p.insere1(*p4);
+   p.insere1(*p5);
+   p.insere1(*p6);
+   p.insere1(*p7);
+   p.insere1(*p8);
 
-    p->preordem(p->getRaiz());
-    p->emordem(p->getRaiz());
+    p.preordem(p.getRaiz());
+    p.emordem(p.getRaiz());
 
 }

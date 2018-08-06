@@ -7,7 +7,6 @@ Texto::Texto()
     {
         this->lista[i]= NULL ;
     }
-    this->contador=0;
 }
 
 Texto::Texto(const Texto& orig) 
@@ -106,18 +105,4 @@ void Texto::alterarPalavra(string tirar,string colocar)
             (this->lista[i])->setPalavra(colocar);
         }
     }
-}
-
-Palavra Texto::proxPalavra()
-{
-    return(*this->lista[this->contador++]);
-}
-
-string Texto::getGravacao()
-{
-    return(this->gravacao);
-}
-void Texto::setGravacao(string Arquivo)
-{
-    this->gravacao = Arquivo;
 }
