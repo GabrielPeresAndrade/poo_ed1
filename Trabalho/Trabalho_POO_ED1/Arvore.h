@@ -29,7 +29,8 @@ public:
     void desmatar(no* p);
     bool insere1(Palavra palavra);
     no* insere(no* p, Palavra palavra);
-    bool consulta(Palavra palavra);
+    bool consulta1(Palavra palavra);
+    bool consulta(no* p,Palavra palavra);
     int altura(no* p);
     int maior(int x, int y);
     no* rot_EE(no* p);

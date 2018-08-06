@@ -78,8 +78,13 @@ Arvore::no* Arvore::insere(no* p, Palavra palavra)
 
 bool Arvore::insere1(Palavra palavra)
 {
-    raiz = insere(raiz, palavra);
-    return true;
+    if (this->consulta1(palavra))
+    {
+        raiz = insere(raiz, palavra);
+        return true;
+    }
+    else 
+        return false;
 }
 
 int Arvore::altura(no* p)
@@ -172,4 +177,26 @@ void Arvore::preordem(no* p)
 Arvore::no* Arvore::getRaiz()
 {
     return(this->raiz);
+}
+
+
+bool Arvore::consulta(no *p, Palavra palavra)
+{
+    if (p == NULL)
+        return false;
+    
+    else if (palavra == p->dado)
+        return true;
+    
+    else if (palavra > p->dado)
+        return (consulta(p->dir, palavra));
+    
+    else 
+        return (consulta(p->esq, palavra));
+        
+}
+
+bool Arvore::consulta1(Palavra palavra)
+{
+    return this->consulta(raiz, palavra);
 }
