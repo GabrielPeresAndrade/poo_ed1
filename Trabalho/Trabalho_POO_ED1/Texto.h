@@ -18,17 +18,22 @@ public:
     
     //Metodos Gets e Sets
     string getArquivo();
+    string getGravacao();
     void setArquivo(string Arquivo);
+    void setGravacao(string Arquivo);
     //Metodos
     void alterarPalavra(string tirar,string colocar);
     void carregarTexto();
     void gravarTexto(string arquivo);
     bool adcLista(string palavra);
+    Palavra proxPalavra();
 private:
     //Lista de palavras   (vetor de ponteiros)
     Palavra *lista[10000];
     //Nome do arquivo original
     string arquivo;
+    string gravacao;
+    int contador;
     
 };
 

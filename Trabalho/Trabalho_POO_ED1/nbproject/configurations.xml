@@ -7,7 +7,6 @@
       <itemPath>Arvore.h</itemPath>
       <itemPath>Corretor.h</itemPath>
       <itemPath>Dicionario.h</itemPath>
-      <itemPath>Erro.h</itemPath>
       <itemPath>Erros.h</itemPath>
       <itemPath>Excecao.h</itemPath>
       <itemPath>Palavra.h</itemPath>
@@ -63,8 +62,6 @@
       </item>
       <item path="Dicionario.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Erro.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Erros.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Erros.h" ex="false" tool="3" flavor2="0">
@@ -115,8 +112,6 @@
       <item path="Dicionario.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Dicionario.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Erro.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Erros.cpp" ex="false" tool="1" flavor2="0">
       </item>
