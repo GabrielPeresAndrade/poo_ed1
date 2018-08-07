@@ -1,5 +1,4 @@
-/*
- * A classe corretor deverá conter métodos para a interação com o usuário e 
+/* A classe corretor deverá conter métodos para a interação com o usuário e 
  * também para manipular as classes dicionário e texto.
  * corrigir a palavra, ignorar o erro, selecionar uma palavra a partir de
  *  uma lista de palavras semelhantes ou adicionar a palavra no dicionario.
@@ -25,7 +24,8 @@ public:
     //Metodos Gets e Sets
     
     //Metodos
-    void corrigirPalavra();
+    void inicializaDic();
+    void corrigirPalavra(Arvore *p, Palavra palavra);
     void ignorarErro();
     void selecionarPalavra();
     bool adicionarPalavraDic(Palavra palavra, Arvore *p);
