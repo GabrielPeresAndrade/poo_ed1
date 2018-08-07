@@ -7,6 +7,7 @@ Texto::Texto()
     {
         this->lista[i]= NULL ;
     }
+    this->contador=0;
 }
 
 Texto::Texto(const Texto& orig) 
@@ -21,11 +22,12 @@ Texto::Texto(const Texto& orig)
 
 Texto::~Texto() 
 {
-    int i;
+   /* int i;
     for (i = 0 ; i < 10000 ; i++)
     {
         this->lista[i]= NULL ;
     }
+    */ 
 }
 
 void Texto::carregarTexto()
@@ -105,4 +107,37 @@ void Texto::alterarPalavra(string tirar,string colocar)
             (this->lista[i])->setPalavra(colocar);
         }
     }
+}
+
+Palavra Texto::percorreTexto()
+{
+    if (this->contador==10000)
+    {
+        this->contador=0;
+        throw(Excecao(ErroDeMemoria));
+    }
+    this->contador++;
+    return(*this->lista[this->contador-1]);
+}
+
+Palavra Texto::percorreTexto(int nPalavra)
+{
+    if (nPalavra==10000)
+    {
+        throw(Excecao(ErroDeMemoria));
+    }
+    return(*this->lista[nPalavra]);
+}
+
+int Texto::consultarPalavra(Palavra p)
+{
+    int i;
+    for (i = 0 ; (( i < 10000) && (this->lista[i]!= NULL)); i++)
+    {
+        if (*this->lista[i] == p)
+        {
+            return i;
+        }
+    }
+    return -1;
 }

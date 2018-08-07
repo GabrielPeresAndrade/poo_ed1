@@ -19,7 +19,7 @@ void Excecao::Msg()
         case ErroDeGravar:
             //Mensagem de Erro
             break;
-        case 3:
+        case ErroDeMemoria:
             //Mensagem de Erro
             break;
         case 4:

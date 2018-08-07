@@ -20,7 +20,7 @@ int main(int argc, char** argv)
     Palavra *p6 = new Palavra();
     Palavra *p7 = new Palavra();
     Palavra *p8 = new Palavra();
-    p1->setPalavra("g");
+    p1->setPalavra("golada");
     p2->setPalavra("b");  
     p3->setPalavra("f");
     p4->setPalavra("e");
@@ -60,5 +60,10 @@ int main(int argc, char** argv)
    p->emordem(p->getRaiz());
    
    //CORRETOR//
+   Corretor *c = new Corretor();
+   c->texto.setArquivo("a.txt");
+   c->texto.carregarTexto();
+   *t1 = c->apresentarContexto(*p1);
+   
    return(0);
 }

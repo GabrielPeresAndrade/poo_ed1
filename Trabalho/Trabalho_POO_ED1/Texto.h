@@ -19,8 +19,11 @@ public:
     //Metodos Gets e Sets
     string getArquivo();
     void setArquivo(string Arquivo);
+    Palavra percorreTexto();
+    Palavra percorreTexto(int nPalavra);
     //Metodos
     void alterarPalavra(string tirar,string colocar);
+    int consultarPalavra(Palavra p);
     void carregarTexto();
     void gravarTexto(string arquivo);
     bool adcLista(string palavra);
@@ -29,6 +32,7 @@ private:
     Palavra *lista[10000];
     //Nome do arquivo original
     string arquivo;
+    int contador;
     
 };
 

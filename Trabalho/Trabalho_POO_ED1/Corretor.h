@@ -28,12 +28,12 @@ public:
     void corrigirPalavra();
     void ignorarErro();
     void selecionarPalavra();
-    void adicionarPalavraDic();
-    void apresentarErro();
-    void apresentarContexto();
+    bool adicionarPalavraDic(Palavra palavra, Arvore *p);
+    bool apresentarErro(Palavra palavra, Arvore *p);
+    Texto apresentarContexto(Palavra p);
+    Texto texto;
 private:
     Dicionario dicionario;
-    Texto texto;
     Erros erros[10000];
     
 };
