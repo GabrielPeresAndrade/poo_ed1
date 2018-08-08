@@ -28,6 +28,7 @@ public:
     void corrigirPalavra();
     void ignorarErro();
     void selecionarPalavra();
+    void palavrasSemelhantes(Palavra p);
     bool adicionarPalavraDic(Palavra palavra, Arvore *p);
     bool apresentarErro(Palavra palavra, Arvore *p);
     Texto apresentarContexto(Palavra p);

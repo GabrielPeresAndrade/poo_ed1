@@ -23,6 +23,10 @@ void ignorarErro(){
 void selecionarPalavra(){
     
 }
+void Corretor::palavrasSemelhantes(Palavra p)
+{
+    
+}
 Texto Corretor::apresentarContexto(Palavra p)
 {
     int a;

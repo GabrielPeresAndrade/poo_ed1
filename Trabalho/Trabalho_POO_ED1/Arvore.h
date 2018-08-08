@@ -39,6 +39,7 @@ public:
     no* rot_DE(no* p);
     void emordem(no* p);
     void preordem(no* p);
+    void palavrasSemelhantes(no *p, Palavra palavra,Palavra *vet,int *posicao);
     
    
 };

@@ -21,6 +21,7 @@ public:
     //Metodos Gets e Sets
     void setArquivo(string nome);
     string getArquivo();
+    Arvore *getRaiz();
     //Metodos
     bool inserirPalavra(Palavra palavra, Arvore*p);
     bool consultarPalavra(Palavra palavra, Arvore *p);

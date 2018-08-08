@@ -21,7 +21,7 @@ int main(int argc, char** argv)
     Palavra *p7 = new Palavra();
     Palavra *p8 = new Palavra();
     p1->setPalavra("golada");
-    p2->setPalavra("b");  
+    p2->setPalavra("abacate");  
     p3->setPalavra("f");
     p4->setPalavra("e");
     p5->setPalavra("z");
@@ -50,7 +50,7 @@ int main(int argc, char** argv)
     //DICIONARIO//
        
     //ARVORE//
-    Arvore *p;
+    Arvore *p = new Arvore();
     Dicionario *dic = new Dicionario();
     
     dic->setArquivo("dic.txt");
@@ -59,7 +59,18 @@ int main(int argc, char** argv)
    p->preordem(p->getRaiz());
    p->emordem(p->getRaiz());
    
-   //CORRETOR//
+   int *posix = new int();
+   
+   *posix=0;
+   Palavra *vet = new Palavra[10000];
+   p->palavrasSemelhantes(p->getRaiz(),*p2,vet,posix);
+  int ai=0;
+  while(ai<90){
+    cout << " "<<vet[ai].getPalavra()<<" | ";
+    ai++;
+  }
+    
+    //CORRETOR//
    Corretor *c = new Corretor();
    c->texto.setArquivo("a.txt");
    c->texto.carregarTexto();

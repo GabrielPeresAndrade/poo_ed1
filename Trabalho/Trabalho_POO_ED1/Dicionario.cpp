@@ -65,3 +65,8 @@ bool Dicionario::lerArquivo(Arvore *p)
         fclose(arq);
     }
 }
+
+Arvore * Dicionario::getRaiz()
+{
+    return(this->raiz);
+}
