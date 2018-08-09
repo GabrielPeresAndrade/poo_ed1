@@ -10,10 +10,10 @@ Palavra::Palavra(string p)
     Palavra();
     this->setPalavra(p);
 }
-Palavra::Palavra(const Palavra& orig) 
+Palavra::Palavra(const Palavra& orig)
 {
     Palavra();
-    this->setPalavra(orig.palavra);
+    this->palavra = orig.palavra ;
 }
 
 Palavra::~Palavra()
@@ -66,7 +66,7 @@ void Palavra::setPalavra(string palavra)
     this->palavra = palavra;
 }
 
-string Palavra::getPalavra()
+string Palavra::getPalavra() const
 {
     return this->palavra;
 }

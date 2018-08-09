@@ -18,16 +18,17 @@ Texto::Texto(const Texto& orig)
     {
         this->lista[i]= orig.lista[i] ;
     }
+    this->arquivo =  orig.arquivo;
+    this->contador = orig.contador;
 }
 
 Texto::~Texto() 
 {
-   /* int i;
-    for (i = 0 ; i < 10000 ; i++)
+    int i;
+    for (i = 0 ; i < this->contador ; i++)
     {
-        this->lista[i]= NULL ;
+        delete this->lista[i] ;
     }
-    */ 
 }
 
 void Texto::carregarTexto()
@@ -73,7 +74,7 @@ void Texto::gravarTexto(string arquivo)
         fclose(arq);
    }
 }
-string Texto::getArquivo()
+string Texto::getArquivo()const
 {
     return arquivo;
 }
@@ -85,16 +86,21 @@ void Texto::setArquivo(string Arquivo)
 
 bool Texto::adcLista(string palavra)
 {
-    int i;
-    for (i = 0 ; i < 10000 ; i++)
-    {
-        if (this->lista[i] == NULL)
-        {
+  //  int i;
+  //  for (i = 0 ; i < 10000 ; i++)
+  //  {
+   //     if (this->lista[i] == NULL)
+        if(this->contador<10000){
             Palavra *p1 = new Palavra(palavra);
-            this->lista[i] = p1;
-            i = 10000;
+            this->lista[this->contador] = p1;
+            this->contador++;
+       //     i = 10000;
         }
-    }
+        else
+        {
+            throw(Excecao(ErroDeMemoria));
+        }
+  //  }
 }
 
 void Texto::alterarPalavra(string tirar,string colocar)
@@ -122,7 +128,7 @@ Palavra Texto::percorreTexto()
 
 Palavra Texto::percorreTexto(int nPalavra)
 {
-    if (nPalavra==10000)
+    if (nPalavra>=this->contador)
     {
         throw(Excecao(ErroDeMemoria));
     }
@@ -140,4 +146,16 @@ int Texto::consultarPalavra(Palavra p)
         }
     }
     return -1;
+}
+
+Texto& Texto::operator=(Texto t1) noexcept
+{
+   // this->lista = t1.lista;
+    for (int i = 0 ; ((i < 10000)  && (this->lista[i]!= NULL)); i++)
+    {
+        this->lista[i]= t1.lista[i] ;
+    }
+    this->contador = t1.contador;
+    this->arquivo = t1.arquivo;
+    return *this;
 }

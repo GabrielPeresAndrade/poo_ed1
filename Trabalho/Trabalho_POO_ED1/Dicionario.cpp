@@ -1,10 +1,13 @@
 #include "Dicionario.h"
 
 Dicionario::Dicionario() {
-    this->setArquivo("dict.txt");
+    this->raiz = new Arvore();
 }
 
 Dicionario::Dicionario(const Dicionario& orig) {
+    Dicionario();
+    this->arquivo = orig.arquivo;
+    this->raiz = orig.raiz;
 }
 
 Dicionario::~Dicionario() {
@@ -14,7 +17,7 @@ void Dicionario::setArquivo(string nome)
 {
     this->arquivo = nome;
 }
-string Dicionario::getArquivo()
+string Dicionario::getArquivo() const
 {
     return(this->arquivo);
 }
@@ -66,7 +69,20 @@ bool Dicionario::lerArquivo(Arvore *p)
     }
 }
 
-Arvore * Dicionario::getRaiz()
+Arvore * Dicionario::getRaiz() const
 {
     return(this->raiz);
+}
+void Dicionario::setRaiz(Arvore *a)
+
+{
+    this->raiz = a ;
+}
+
+
+Dicionario& Dicionario::operator=(Dicionario d1) noexcept
+{
+    this->arquivo = d1.arquivo;
+    this->raiz = d1.raiz;
+    return *this;
 }

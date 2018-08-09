@@ -14,6 +14,7 @@
 #include "Texto.h"
 #include "Dicionario.h"
 #include "Erros.h"
+#include <iostream>
 using namespace std;
 
 class Corretor{
@@ -23,19 +24,25 @@ public:
     Corretor(const Corretor& orig);
     virtual ~Corretor();
     //Metodos Gets e Sets
-    
+    Texto getTexto();
+    Dicionario getDicionario();
+    void setTexto(Texto t);
+    void setDicionario(Dicionario d);
     //Metodos
     void corrigirPalavra();
     void ignorarErro();
     void selecionarPalavra();
-    void palavrasSemelhantes(Palavra p);
+    Palavra *palavrasSemelhantes(Palavra p);
     bool adicionarPalavraDic(Palavra palavra, Arvore *p);
     bool apresentarErro(Palavra palavra, Arvore *p);
-    Texto apresentarContexto(Palavra p);
-    Texto texto;
+    Texto *apresentarContexto(Palavra p);
+    void nomeArquivo(string s);
+    void nomeTexto(string s);
+    void carregarTexto();
 private:
     Dicionario dicionario;
-    Erros erros[10000];
+    Texto texto;
+  //  Erros erros[10000];
     
 };
 

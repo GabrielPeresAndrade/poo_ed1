@@ -17,7 +17,7 @@ public:
     virtual ~Texto();       
     
     //Metodos Gets e Sets
-    string getArquivo();
+    string getArquivo()const;
     void setArquivo(string Arquivo);
     Palavra percorreTexto();
     Palavra percorreTexto(int nPalavra);
@@ -27,6 +27,8 @@ public:
     void carregarTexto();
     void gravarTexto(string arquivo);
     bool adcLista(string palavra);
+    
+    Texto& operator=(Texto t1) noexcept;
 private:
     //Lista de palavras   (vetor de ponteiros)
     Palavra *lista[10000];
