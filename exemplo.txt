@@ -1,0 +1,1 @@
+﻿este projeto foi desenvolvido pelos estudantes de ciencia da computação da universidade federal de são carlos campus sorocaba visando colocar em pratica o conteudo aprendido nas disciplinas de programação orientada a objeto e estuturas de dados 
