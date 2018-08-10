@@ -4,6 +4,7 @@ Excecao::Excecao() {
 }
 
 Excecao::Excecao(const Excecao& orig) {
+    this->numErro = orig.numErro;
 }
 
 Excecao::~Excecao() {
@@ -15,25 +16,19 @@ void Excecao::Msg()
     {
         case ErroDeLeitura:
             //Mensagem de Erro
+            cout << "!!!ERRO DE LEITURA DE ARQUIVO!!!"<< endl;
             break;
         case ErroDeGravar:
             //Mensagem de Erro
+            cout << "!!!ERRO DE GRAVAÇÃO DE ARQUIVO!!!"<< endl;
             break;
         case ErroDeMemoria:
             //Mensagem de Erro
+            cout << "!!!ERRO DE MEMÓRIA!!!"<< endl;
             break;
-        case 4:
-            //Mensagem de Erro
-            break;
-        case 5:
-            //Mensagem de Erro
-            break;
-        case 6:
-            //Mensagem de Erro
-            break;   
-    }       
+    } 
+}       
     
-}
 Excecao::Excecao(int numErro)
 {
     Excecao();

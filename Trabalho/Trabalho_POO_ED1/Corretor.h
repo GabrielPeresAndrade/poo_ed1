@@ -41,9 +41,10 @@ public:
     void carregarTexto();
     void gravarTexto(string s);
     string selecionarPalavra(Palavra *vet);
-    void corrigirPalavra(Palavra palavra);
+    bool corrigirPalavra(Palavra palavra);
     void corrigirManualmente(Palavra p,string palavra);
     void mostrarErros();
+    Palavra recuperaPalavra(int num);
 private:
     Dicionario dicionario;
     Texto texto;

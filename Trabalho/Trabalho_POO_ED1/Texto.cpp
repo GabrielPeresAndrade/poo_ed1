@@ -50,7 +50,13 @@ void Texto::carregarTexto()
             fscanf(arq,"%s",s);
             if (s[0]!='\0')
             {
-                this->adcLista(s);
+                try
+                {
+                    this->adcLista(s);
+                }catch(Excecao i)
+                {
+                    throw(i);
+                }
             }
         } 
         fclose(arq);
@@ -147,7 +153,6 @@ int Texto::consultarPalavra(Palavra p)
 
 Texto& Texto::operator=(Texto t1) noexcept
 {
-   // this->lista = t1.lista;
     for (int i = 0 ; ((i < 10000)  && (this->lista[i]!= NULL)); i++)
     {
         this->lista[i]= t1.lista[i] ;

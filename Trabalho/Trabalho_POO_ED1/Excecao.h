@@ -4,9 +4,8 @@
 #define ErroDeLeitura 1
 #define ErroDeGravar 2
 #define ErroDeMemoria 3
-//#define ErroDeLeitura 1
-//#define ErroDeLeitura 1
-//#define ErroDeLeitura 1
+#include <iostream>
+using namespace std;
 class Excecao {
 public:
     Excecao();

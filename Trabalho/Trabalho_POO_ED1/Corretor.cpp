@@ -56,32 +56,39 @@ void Corretor::listarErros()
 {
     for(int i=0; i<this->texto.getContador(); i++)
     {
-        //verifica se cada palavra esta na arvore
-        if(!this->dicionario.getRaiz()->consulta(this->texto.percorreTexto(i)))
-        {
-            //se nao tiver
-            int j;
-            int flag=0;
-            for(j = 0; ((j < this->qtdErros) && (flag==0)); j++)
+        try{
+            
+            //verifica se cada palavra esta na arvore
+            if(!this->dicionario.getRaiz()->consulta(this->texto.percorreTexto(i)))
             {
-                //verifica se o erro ja existe
-                if(this->erros[j]->getPalavra().getPalavra()==this->texto.percorreTexto(i).getPalavra())
+                //se nao tiver
+                int j;
+                int flag=0;
+                for(j = 0; ((j < this->qtdErros) && (flag==0)); j++)
                 {
-                    flag=1;
-                    this->erros[j]->setOcorrencia(this->erros[j]->getOcorrencia()+1);
+                    //verifica se o erro ja existe
+                    if(this->erros[j]->getPalavra().getPalavra()==this->texto.percorreTexto(i).getPalavra())
+                    {
+                        flag=1;
+                        this->erros[j]->setOcorrencia(this->erros[j]->getOcorrencia()+1);
+                    }
                 }
+                if(flag==0)
+                {
+                    //nao existe esse erro
+                    if (this->erros[this->qtdErros] == NULL)
+                        this->erros[this->qtdErros] = new Erros();
+
+                    this->erros[this->qtdErros]->setPalavra(this->texto.percorreTexto(i));
+                    this->erros[this->qtdErros]->setOcorrencia(1);
+                    this->qtdErros++;
+                }
+
             }
-            if(flag==0)
-            {
-                //nao existe esse erro
-                if (this->erros[this->qtdErros] == NULL)
-                    this->erros[this->qtdErros] = new Erros();
-                
-                this->erros[this->qtdErros]->setPalavra(this->texto.percorreTexto(i));
-                this->erros[this->qtdErros]->setOcorrencia(1);
-                this->qtdErros++;
-            }
-        }  
+        }catch(Excecao i)
+        {
+            throw(i);
+        }
     }
 }
 
@@ -93,7 +100,7 @@ Palavra *Corretor::palavrasSemelhantes(Palavra p)
    this->dicionario.getRaiz()->palavrasSemelhantes(this->dicionario.getRaiz()->getRaiz(),p,vet,posix);
    for(int ai=0; ai<*posix;ai++)
    {
-    cout << " "<<vet[ai].getPalavra()<<" | ";
+    cout << "("<<ai<<") "<<vet[ai].getPalavra()<<" | ";
   }
    delete posix;
    return(vet);
@@ -102,12 +109,42 @@ Texto *Corretor::apresentarContexto(Palavra p)
 {
     int a;
     Texto *t =new Texto() ;
-    a = this->texto.consultarPalavra(p); 
+    a = this->texto.consultarPalavra(p);
+    if(this->texto.getContador()-1==a)
+    {
+        try
+        {
+            t->adcLista(this->texto.percorreTexto(a-1).getPalavra());
+        cout << "Palavra anterior: "<< this->texto.percorreTexto(a-1).getPalavra()<<endl;
+        }catch(Excecao i)
+        {
+            throw(i);
+        }
+        return t;
+    }
+    if(0==a)
+    {
+        try
+        {
+            cout << "Palavra seguinte:" << this->texto.percorreTexto(a+1).getPalavra()<<endl;
+            t->adcLista(this->texto.percorreTexto(a+1).getPalavra());
+        }catch(Excecao i)
+        {
+            throw(i);
+        }
+        return t;
+    }
     if(a!=-1)
     {
-        t->adcLista(this->texto.percorreTexto(a-1).getPalavra());
-        cout << "Palavra anterior: "<< this->texto.percorreTexto(a-1).getPalavra() <<" | Palavra seguinte:" << this->texto.percorreTexto(a+1).getPalavra();
-        t->adcLista(this->texto.percorreTexto(a+1).getPalavra());
+        try{
+            
+            t->adcLista(this->texto.percorreTexto(a-1).getPalavra());
+            cout << "Palavra anterior: "<< this->texto.percorreTexto(a-1).getPalavra() <<" | Palavra seguinte:" << this->texto.percorreTexto(a+1).getPalavra()<<endl;
+            t->adcLista(this->texto.percorreTexto(a+1).getPalavra());
+        }catch(Excecao i)
+        {
+            throw(i);
+        }
     }
     return t;
 }
@@ -152,10 +189,17 @@ void Corretor::nomeTexto(string s)
 }
 void Corretor::carregarTexto()
 {
-    this->texto.carregarTexto();
+    try
+    {
+        this->texto.carregarTexto();
+    }catch(Excecao i)
+    {
+        throw(i);
+    }
+    
 }
 
-void Corretor::corrigirPalavra(Palavra palavra){
+bool Corretor::corrigirPalavra(Palavra palavra){
     
     Palavra *aux = new Palavra[10000];
     try{
@@ -164,17 +208,26 @@ void Corretor::corrigirPalavra(Palavra palavra){
     {
         throw(Excecao(i));
     }
-    string selecionada = this->selecionarPalavra(aux);
-    
-   this->texto.alterarPalavra(palavra.getPalavra(), selecionada);
-   delete aux;
+    try{
+        string selecionada = this->selecionarPalavra(aux);
+        if (selecionada == "")
+                return 0;
+       this->texto.alterarPalavra(palavra.getPalavra(), selecionada);
+        delete aux;
+    }catch(Excecao i)
+    {
+        throw(i);
+    }
+   return 1;
     
 }
 
 string Corretor::selecionarPalavra(Palavra *vet){
    int posicao;
-   cout << endl << "Qual a opção de correção que deseja? :";
+   cout << endl << "Qual a opção de correção que deseja? ('-1' para nao corrigir):";
    cin >> posicao;
+   if (posicao==-1)
+       return "";
    int tam;
    for(int i=0;i<10000;i++)
        if(vet[i].getPalavra()!="")
@@ -190,10 +243,20 @@ string Corretor::selecionarPalavra(Palavra *vet){
 
 void Corretor::gravarTexto(string s)
 {
-    this->texto.gravarTexto(s);
+    try
+    {
+        this->texto.gravarTexto(s);
+    }catch(Excecao i)
+    {
+        throw(i);
+    }
 }
 
 void Corretor::corrigirManualmente(Palavra p,string palavra)
 {
     this->texto.alterarPalavra(p.getPalavra(),palavra);
+}
+Palavra Corretor::recuperaPalavra(int num)
+{
+    return this->erros[num]->getPalavra();
 }
