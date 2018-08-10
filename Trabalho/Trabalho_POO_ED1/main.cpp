@@ -10,61 +10,100 @@ using namespace std;
 
 int main(int argc, char** argv) 
 {
-    //PALAVRA//
+    int opc;
+    int num;
+    int num2;
+    char r;
     
-    Palavra *p1 = new Palavra();
-    Palavra *p2 = new Palavra();
-    Palavra *p3 = new Palavra();
-    Palavra *p4 = new Palavra();
-    Palavra *p5 = new Palavra();
-    Palavra *p6 = new Palavra();
-    Palavra *p7 = new Palavra();
-    Palavra *p8 = new Palavra();
-    p1->setPalavra("g");
-    p2->setPalavra("b");  
-    p3->setPalavra("f");
-    p4->setPalavra("e");
-    p5->setPalavra("z");
-    p6->setPalavra("c");
-    p7->setPalavra("d");
-    p8->setPalavra("t");
-    
-    if (*p1>*p2)
+    Corretor *c = new Corretor();
+    cout << "******BEM VINDO A SAMUEL'S DRIFT******" << endl << endl<< "******TRABALHO INTEGRADO P00 ED******"<< endl<< endl;
+    cout << "Digite o nome do Arquivo contendo o Dicionario (\"Dic.txt\"):"<< endl <<"-";
+    string nome;
+    cin >> nome;
+    try{
+        c->nomeArquivo(nome);
+        cout << "Carregando..."<< endl;
+        c->getDicionario().lerArquivo(c->getDicionario().getRaiz());
+        cout << "Carregado com Sucesso"<< endl;
+        cout << "Digite o nome do Arquivo do Texto (\"exemplo.txt\")"<< endl <<"-";
+        cin >> nome;
+        c->nomeTexto(nome);
+        cout << "Carregando..."<< endl;
+        c->carregarTexto();
+        cout << "Carregado com Sucesso"<< endl<<endl; 
+    }catch(Excecao i)
     {
-        cout<<"atum > atim\n";
+        i.Msg();
+        return (0);
     }
-    
-    if (p1->semelhante(*p2)==1)
-        cout<<"Palavras Semelhantes" <<endl;
-    
-    //TEXTO//
-    
-    Texto *t1 = new Texto();
-    t1->setArquivo("texte.txt");
-    t1->carregarTexto();
-    string a="eae";
-    string b="eba";
-    string arq="textoMod.txt";
-    t1->alterarPalavra(a,b);
-    t1->gravarTexto(arq);
-    //DICIONARIO//
-    
-    //CORRETOR//
-    
-    //ARVORE//
-    Arvore p;
-    
-    
-   p.insere1(*p1);
-   p.insere1(*p2);
-   p.insere1(*p3);
-   p.insere1(*p4);
-   p.insere1(*p5);
-   p.insere1(*p6);
-   p.insere1(*p7);
-   p.insere1(*p8);
-
-    p.preordem(p.getRaiz());
-    p.emordem(p.getRaiz());
-
+    while(1)
+    {   
+        r=getchar();
+        r=getchar();
+        c->listarErros();
+        cout << "Os Erros encontrados no seu arquivo foram: "<<endl<<"Num | Palavra (Ocorrencia)"<<endl;
+        c->mostrarErros();
+        cout << "O que gostaria de fazer:" << endl<<"(1) Adicionar Palavra ao Dicionario"<<endl<<"(2) Ignorar um Erro"<<endl<<"(3) Corrigir Manualmente"<<endl<<"(4) Mostrar Palavras Semelhantes"<<endl<<"(5) Apresentar Contexto de uma Palavra"<<endl<<"(6) Gravar no Texto e Sair"<<endl<<"-";
+        try
+        {
+            cin >> opc;
+            switch(opc)
+            {
+           
+                case 1:
+                    cout << "Digite o numero da Palavra"<<endl<<"-";
+                    cin>> num;
+                    if(c->adicionarPalavraDic(c->recuperaPalavra(num))==1)
+                    {
+                        //adicionou
+                        cout << "add";
+                        c->ignorarErro(num);
+                    }
+                    else
+                    {
+                        //nao adicionou
+                        cout << "nao add";
+                    }
+                    break;
+                case 2:
+                    cout << "Digite o numero da Palavra"<<endl<<"-";
+                    cin>> num;
+                    c->ignorarErro(num);
+                    break;
+                case 3:
+                    cout << "Digite o numero da Palavra"<<endl<<"-";
+                    cin>> num;
+                    cout << "Digite a correção"<<endl<<"-";
+                    cin>> nome;
+                    c->corrigirManualmente(c->recuperaPalavra(num),nome);
+                    c->ignorarErro(num);
+                    break;
+                case 4:
+                    cout << "Digite o numero da Palavra"<<endl<<"-";
+                    cin>> num;
+                    if (c->corrigirPalavra(c->recuperaPalavra(num))==1)
+                    {
+                        c->ignorarErro(num);
+                    }
+                    break;
+                case 5:
+                    cout << "Digite o numero da Palavra"<<endl<<"-";
+                    cin>> num;
+                    c->apresentarContexto(c->recuperaPalavra(num));
+                    break;      
+                case 6:
+                    cout << "Digite o nome do Texto para Gravar o Texto"<<endl<<"-";
+                    cin>> nome;
+                    c->gravarTexto(nome);
+                    cout << "BYE BYE"<<endl;
+                    return(0);
+                    break;
+            }
+        }catch(Excecao i)
+        {
+            i.Msg();
+            return (0);
+        }
+    }
+    return(0);
 }

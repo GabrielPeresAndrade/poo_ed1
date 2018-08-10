@@ -5,10 +5,11 @@ using namespace std;
 
 Arvore::Arvore() {
     raiz = NULL;
+    
 }
 
 Arvore::Arvore(const Arvore& orig) {
-    raiz == NULL;
+    raiz = NULL;
 }
 
 Arvore::~Arvore() {
@@ -27,7 +28,7 @@ void Arvore::desmatar(no* p)
   
 bool Arvore::vazia()
 {
-    if(this == NULL)
+    if(this->raiz == NULL)
     	return 1;
     else
     	return 0;
@@ -76,10 +77,15 @@ Arvore::no* Arvore::insere(no* p, Palavra palavra)
 }
 
 
-bool Arvore::insere1(Palavra palavra)
+bool Arvore::insere(Palavra palavra)
 {
-    raiz = insere(raiz, palavra);
-    return true;
+    if (!this->consulta(palavra))
+    {
+        raiz = this->insere(raiz, palavra);
+        return true;
+    }
+    else 
+        return false;
 }
 
 int Arvore::altura(no* p)
@@ -172,4 +178,59 @@ void Arvore::preordem(no* p)
 Arvore::no* Arvore::getRaiz()
 {
     return(this->raiz);
+}
+
+
+bool Arvore::consulta(no *p, Palavra palavra)
+{
+    if (p == NULL)
+        return false;
+    
+    else if (palavra == p->dado)
+        return true;
+    
+    else if (palavra > p->dado)
+        return (consulta(p->dir, palavra));
+    
+    else 
+        return (consulta(p->esq, palavra));
+        
+}
+
+bool Arvore::consulta(Palavra palavra)
+{
+    if (!this->vazia())
+    return this->consulta(raiz, palavra);
+    return false;
+}
+
+void Arvore::palavrasSemelhantes(no *p, Palavra palavra,Palavra *vet,int *posicao)
+{
+    if (p == NULL)
+    {
+    
+    }else{ 
+        if (palavra > p->dado){
+            if (palavra.semelhante(p->dado))
+            {
+                //adiciona na lista
+                *(vet+*posicao)=p->dado;
+                *posicao=*posicao+1;
+                palavrasSemelhantes(p->esq, palavra,vet,posicao);
+                palavrasSemelhantes(p->dir, palavra,vet,posicao);
+            }
+            else
+            palavrasSemelhantes(p->dir, palavra,vet,posicao);
+        }else{
+            if (palavra.semelhante(p->dado))
+            {
+                //adiciona na lista
+                *(vet+*posicao)=p->dado;
+                *posicao=*posicao+1;
+                palavrasSemelhantes(p->esq, palavra,vet,posicao);
+                palavrasSemelhantes(p->dir, palavra,vet,posicao);
+            }else
+            palavrasSemelhantes(p->esq, palavra,vet,posicao);
+         }
+    }
 }

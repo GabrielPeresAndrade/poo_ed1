@@ -3,9 +3,9 @@
 #define EXCECAO_H
 #define ErroDeLeitura 1
 #define ErroDeGravar 2
-//#define ErroDeLeitura 1
-//#define ErroDeLeitura 1
-//#define ErroDeLeitura 1
+#define ErroDeMemoria 3
+#include <iostream>
+using namespace std;
 class Excecao {
 public:
     Excecao();

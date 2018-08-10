@@ -27,9 +27,10 @@ public:
     //Metodos
     bool vazia();
     void desmatar(no* p);
-    bool insere1(Palavra palavra);
+    bool insere(Palavra palavra);
     no* insere(no* p, Palavra palavra);
     bool consulta(Palavra palavra);
+    bool consulta(no* p,Palavra palavra);
     int altura(no* p);
     int maior(int x, int y);
     no* rot_EE(no* p);
@@ -38,6 +39,7 @@ public:
     no* rot_DE(no* p);
     void emordem(no* p);
     void preordem(no* p);
+    void palavrasSemelhantes(no *p, Palavra palavra,Palavra *vet,int *posicao);
     
    
 };

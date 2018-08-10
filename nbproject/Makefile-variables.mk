@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_1-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_1-Windows
-CND_ARTIFACT_NAME_Debug=trabalho_poo_ed1
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_1-Windows/trabalho_poo_ed1
+CND_ARTIFACT_NAME_Debug=poo_ed1-master
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_1-Windows/poo_ed1-master
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_1-Windows/package
-CND_PACKAGE_NAME_Debug=trabalhopooed1.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_1-Windows/package/trabalhopooed1.tar
+CND_PACKAGE_NAME_Debug=pooed1-master.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_1-Windows/package/pooed1-master.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_1-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_1-Windows
-CND_ARTIFACT_NAME_Release=trabalho_poo_ed1
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_1-Windows/trabalho_poo_ed1
+CND_ARTIFACT_NAME_Release=poo_ed1-master
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_1-Windows/poo_ed1-master
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_1-Windows/package
-CND_PACKAGE_NAME_Release=trabalhopooed1.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_1-Windows/package/trabalhopooed1.tar
+CND_PACKAGE_NAME_Release=pooed1-master.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_1-Windows/package/pooed1-master.tar
 #
 # include compiler specific variables
 #

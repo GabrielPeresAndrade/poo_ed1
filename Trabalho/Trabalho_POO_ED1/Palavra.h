@@ -19,7 +19,7 @@ public:
     
     //Metodos Gets e Sets
     void setPalavra(string palavra);
-    string getPalavra();
+    string getPalavra()const;
     
     //Metodos
     bool operator==(Palavra &p1);

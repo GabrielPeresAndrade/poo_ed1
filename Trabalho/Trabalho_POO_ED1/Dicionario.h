@@ -20,13 +20,15 @@ public:
     virtual ~Dicionario();
     //Metodos Gets e Sets
     void setArquivo(string nome);
-    string getArquivo();
+    string getArquivo()const;
+    Arvore *getRaiz() const;
+    void setRaiz(Arvore *a);
     //Metodos
     bool inserirPalavra(Palavra palavra);
-    bool consultarPalavra(Palavra palavra,Arvore *raiz);
-    bool lerArquivo();
+    bool consultarPalavra(Palavra palavra);
+    bool lerArquivo(Arvore *p);
 
-
+    Dicionario& operator=(Dicionario d1) noexcept;
 private:
     string arquivo;
     Arvore *raiz;
