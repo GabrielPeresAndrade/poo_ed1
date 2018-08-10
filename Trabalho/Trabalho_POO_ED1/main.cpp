@@ -21,9 +21,21 @@ int main(int argc, char** argv)
    t1 = c->apresentarContexto(*p1);
    c->nomeArquivo("dic.txt");
    c->getDicionario().lerArquivo(c->getDicionario().getRaiz()); 
-   c->getDicionario().getRaiz()->preordem(c->getDicionario().getRaiz()->getRaiz());
-   c->getDicionario().getRaiz()->emordem(c->getDicionario().getRaiz()->getRaiz());
-   c->palavrasSemelhantes(*p2); 
+//   c->getDicionario().getRaiz()->preordem(c->getDicionario().getRaiz()->getRaiz());
+//   c->getDicionario().getRaiz()->emordem(c->getDicionario().getRaiz()->getRaiz());
+//   c->palavrasSemelhantes(*p1); 
+//   c->corrigirPalavra(*p1);
+//   c->gravarTexto("vai.txt");
+   if (c->adicionarPalavraDic(*p1)==1)
+   {
+       //adicionou
+       c->palavrasSemelhantes(*p1); 
+   }
+   else
+   {
+       //nao adicionou
+       c->palavrasSemelhantes(*p1); 
+   }
    
    return(0);
 }

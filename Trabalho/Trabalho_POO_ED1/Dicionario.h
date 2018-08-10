@@ -24,8 +24,8 @@ public:
     Arvore *getRaiz() const;
     void setRaiz(Arvore *a);
     //Metodos
-    bool inserirPalavra(Palavra palavra, Arvore*p);
-    bool consultarPalavra(Palavra palavra, Arvore *p);
+    bool inserirPalavra(Palavra palavra);
+    bool consultarPalavra(Palavra palavra);
     bool lerArquivo(Arvore *p);
 
     Dicionario& operator=(Dicionario d1) noexcept;

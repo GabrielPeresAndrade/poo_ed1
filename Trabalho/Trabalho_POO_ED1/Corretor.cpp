@@ -25,9 +25,6 @@ void ignorarErro(){
     
 }
 
-void selecionarPalavra(){
-    
-}
 Palavra *Corretor::palavrasSemelhantes(Palavra p)
 {
     int *posix = new int();   
@@ -48,19 +45,16 @@ Texto *Corretor::apresentarContexto(Palavra p)
     a = this->texto.consultarPalavra(p); 
     if(a!=-1)
     {
-       // t->adcLista(this->texto.percorreTexto(a-1).getPalavra());
+        t->adcLista(this->texto.percorreTexto(a-1).getPalavra());
         cout << "Palavra anterior: "<< this->texto.percorreTexto(a-1).getPalavra() <<" | Palavra seguinte:" << this->texto.percorreTexto(a+1).getPalavra();
-       // t->adcLista(this->texto.percorreTexto(a+1).getPalavra());
+        t->adcLista(this->texto.percorreTexto(a+1).getPalavra());
     }
     return t;
 }
 
-bool Corretor::adicionarPalavraDic(Palavra palavra, Arvore *p){
+bool Corretor::adicionarPalavraDic(Palavra palavra){
     
-    if(!p->consulta1(palavra))
-        return (p->insere1(palavra));
-    else 
-        return false;
+        return (dicionario.getRaiz()->insere1(palavra));
 }
 
 bool Corretor::apresentarErro(Palavra palavra, Arvore *p){
@@ -99,4 +93,29 @@ void Corretor::nomeTexto(string s)
 void Corretor::carregarTexto()
 {
     this->texto.carregarTexto();
+}
+
+void Corretor::corrigirPalavra(Palavra palavra){
+    
+    Palavra *aux = new Palavra[10000];
+    aux = this->palavrasSemelhantes(palavra);
+    
+    string selecionada = this->selecionarPalavra(aux);
+    
+   this->texto.alterarPalavra(palavra.getPalavra(), selecionada);
+    
+}
+
+string Corretor::selecionarPalavra(Palavra *vet){
+   int posicao;
+   cin >> posicao;
+  
+   string novaPalavra = vet[posicao - 1].getPalavra(); 
+   
+   return novaPalavra;
+}
+
+void Corretor::gravarTexto(string s)
+{
+    this->texto.gravarTexto(s);
 }

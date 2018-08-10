@@ -33,12 +33,15 @@ public:
     void ignorarErro();
     void selecionarPalavra();
     Palavra *palavrasSemelhantes(Palavra p);
-    bool adicionarPalavraDic(Palavra palavra, Arvore *p);
+    bool adicionarPalavraDic(Palavra palavra);
     bool apresentarErro(Palavra palavra, Arvore *p);
     Texto *apresentarContexto(Palavra p);
     void nomeArquivo(string s);
     void nomeTexto(string s);
     void carregarTexto();
+    void gravarTexto(string s);
+    string selecionarPalavra(Palavra *vet);
+    void corrigirPalavra(Palavra palavra);
 private:
     Dicionario dicionario;
     Texto texto;

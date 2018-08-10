@@ -22,15 +22,15 @@ string Dicionario::getArquivo() const
     return(this->arquivo);
 }
 
-bool Dicionario::inserirPalavra(Palavra palavra,Arvore *p)
+bool Dicionario::inserirPalavra(Palavra palavra)
 {
-    p->insere1(palavra);
+    this->getRaiz()->insere1(palavra);
 }
 
-bool Dicionario::consultarPalavra(Palavra palavra, Arvore *p)
+bool Dicionario::consultarPalavra(Palavra palavra)
 {
     
-    if (p->consulta1(palavra))
+    if (this->getRaiz()->consulta1(palavra))
         return true;
     
     else 
