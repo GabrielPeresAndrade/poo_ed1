@@ -1,7 +1,12 @@
 #include "Corretor.h"
 
 Corretor::Corretor() {
-
+    int i;
+    for (i = 0 ; i < 10000 ; i++)
+    {
+        this->erros[i]= NULL ;
+    }
+    this->qtdErros=0;
 }
 
 Corretor::Corretor(const Corretor& orig) {
@@ -10,19 +15,74 @@ Corretor::Corretor(const Corretor& orig) {
     this->dicionario.setArquivo(orig.dicionario.getArquivo());
     this->dicionario.setRaiz(orig.dicionario.getRaiz());
     this->texto = orig.texto;
-   // this->erros = orig.erros;
+    this->qtdErros= orig.qtdErros;
+    int i;
+    for (i = 0 ; i < 10000 ; i++)
+    {
+        this->erros[i] = new Erros();
+        this->erros[i]= orig.erros[i] ;
+    }
 }
 
 Corretor::~Corretor() {
+    int i;
+    for (i = 0 ; i < this->qtdErros ; i++)
+    {
+        delete this->erros[i] ;
+    }
     
 }
 
-void corrigirPalavra(){
-    
+void Corretor::ignorarErro(int numero){
+    if (numero==this->qtdErros)
+    {
+        this->erros[numero]->setOcorrencia(-1);
+    }
+    for (int i=numero; i < this->qtdErros-1 ;i++)
+    {
+        this->erros[i]->setPalavra(this->erros[i+1]->getPalavra());
+        this->erros[i]->setOcorrencia(this->erros[i+1]->getOcorrencia());
+    }
+    this->qtdErros--;
 }
-
-void ignorarErro(){
-    
+void Corretor::mostrarErros(){
+    for (int i=0; i < this->qtdErros ;i++)
+    {
+        if (this->erros[i]->getOcorrencia()!= -1)
+        cout<< i << " | " << this->erros[i]->getPalavra().getPalavra()<< " ( " << this->erros[i]->getOcorrencia()<< " )" <<endl; 
+    }
+}
+void Corretor::listarErros()
+{
+    for(int i=0; i<this->texto.getContador(); i++)
+    {
+        //verifica se cada palavra esta na arvore
+        if(!this->dicionario.getRaiz()->consulta(this->texto.percorreTexto(i)))
+        {
+            //se nao tiver
+            int j;
+            int flag=0;
+            for(j = 0; ((j < this->qtdErros) && (flag==0)); j++)
+            {
+                //verifica se o erro ja existe
+                if(this->erros[j]->getPalavra().getPalavra()==this->texto.percorreTexto(i).getPalavra())
+                {
+                    flag=1;
+                    this->erros[j]->setOcorrencia(this->erros[j]->getOcorrencia()+1);
+                }
+            }
+            if(flag==0)
+            {
+                //nao existe esse erro
+                if (this->erros[this->qtdErros] == NULL)
+                    this->erros[this->qtdErros] = new Erros();
+                
+                this->erros[this->qtdErros]->setPalavra(this->texto.percorreTexto(i));
+                this->erros[this->qtdErros]->setOcorrencia(1);
+                this->qtdErros++;
+            }
+        }  
+    }
 }
 
 Palavra *Corretor::palavrasSemelhantes(Palavra p)
@@ -54,11 +114,11 @@ Texto *Corretor::apresentarContexto(Palavra p)
 
 bool Corretor::adicionarPalavraDic(Palavra palavra){
     
-        return (dicionario.getRaiz()->insere1(palavra));
+        return (dicionario.getRaiz()->insere(palavra));
 }
 
 bool Corretor::apresentarErro(Palavra palavra, Arvore *p){
-    if(!p->consulta1(palavra))
+    if(!p->consulta(palavra))
         return true;
     
     else
@@ -98,18 +158,31 @@ void Corretor::carregarTexto()
 void Corretor::corrigirPalavra(Palavra palavra){
     
     Palavra *aux = new Palavra[10000];
-    aux = this->palavrasSemelhantes(palavra);
-    
+    try{
+        aux = this->palavrasSemelhantes(palavra);
+    }catch(Excecao i)
+    {
+        throw(Excecao(i));
+    }
     string selecionada = this->selecionarPalavra(aux);
     
    this->texto.alterarPalavra(palavra.getPalavra(), selecionada);
+   delete aux;
     
 }
 
 string Corretor::selecionarPalavra(Palavra *vet){
    int posicao;
+   cout << endl << "Qual a opção de correção que deseja? :";
    cin >> posicao;
-  
+   int tam;
+   for(int i=0;i<10000;i++)
+       if(vet[i].getPalavra()!="")
+           tam=i+1;
+   if (posicao>tam)
+   {
+       throw(Excecao(ErroDeMemoria));
+   }
    string novaPalavra = vet[posicao - 1].getPalavra(); 
    
    return novaPalavra;
@@ -118,4 +191,9 @@ string Corretor::selecionarPalavra(Palavra *vet){
 void Corretor::gravarTexto(string s)
 {
     this->texto.gravarTexto(s);
+}
+
+void Corretor::corrigirManualmente(Palavra p,string palavra)
+{
+    this->texto.alterarPalavra(p.getPalavra(),palavra);
 }

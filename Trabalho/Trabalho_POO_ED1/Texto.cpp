@@ -49,7 +49,9 @@ void Texto::carregarTexto()
             s[0]='\0';
             fscanf(arq,"%s",s);
             if (s[0]!='\0')
+            {
                 this->adcLista(s);
+            }
         } 
         fclose(arq);
     }
@@ -86,21 +88,16 @@ void Texto::setArquivo(string Arquivo)
 
 bool Texto::adcLista(string palavra)
 {
-  //  int i;
-  //  for (i = 0 ; i < 10000 ; i++)
-  //  {
-   //     if (this->lista[i] == NULL)
-        if(this->contador<10000){
-            Palavra *p1 = new Palavra(palavra);
-            this->lista[this->contador] = p1;
-            this->contador++;
-       //     i = 10000;
-        }
-        else
-        {
-            throw(Excecao(ErroDeMemoria));
-        }
-  //  }
+  if(this->contador<10000)
+  {
+    Palavra *p1 = new Palavra(palavra);
+    this->lista[this->contador] = p1;
+    this->contador++;
+  }
+  else
+  {
+    throw(Excecao(ErroDeMemoria));
+  }
 }
 
 void Texto::alterarPalavra(string tirar,string colocar)
@@ -158,4 +155,9 @@ Texto& Texto::operator=(Texto t1) noexcept
     this->contador = t1.contador;
     this->arquivo = t1.arquivo;
     return *this;
+}
+
+int Texto::getContador()const
+{
+    return( this->contador);
 }

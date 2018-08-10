@@ -29,8 +29,8 @@ public:
     void setTexto(Texto t);
     void setDicionario(Dicionario d);
     //Metodos
-    void corrigirPalavra();
-    void ignorarErro();
+    void ignorarErro(int numero);
+    void listarErros();
     void selecionarPalavra();
     Palavra *palavrasSemelhantes(Palavra p);
     bool adicionarPalavraDic(Palavra palavra);
@@ -42,10 +42,13 @@ public:
     void gravarTexto(string s);
     string selecionarPalavra(Palavra *vet);
     void corrigirPalavra(Palavra palavra);
+    void corrigirManualmente(Palavra p,string palavra);
+    void mostrarErros();
 private:
     Dicionario dicionario;
     Texto texto;
-  //  Erros erros[10000];
+    Erros *erros[10000];
+    int qtdErros;
     
 };
 

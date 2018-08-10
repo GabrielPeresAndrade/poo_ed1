@@ -77,9 +77,9 @@ Arvore::no* Arvore::insere(no* p, Palavra palavra)
 }
 
 
-bool Arvore::insere1(Palavra palavra)
+bool Arvore::insere(Palavra palavra)
 {
-    if (!this->consulta1(palavra))
+    if (!this->consulta(palavra))
     {
         raiz = this->insere(raiz, palavra);
         return true;
@@ -197,7 +197,7 @@ bool Arvore::consulta(no *p, Palavra palavra)
         
 }
 
-bool Arvore::consulta1(Palavra palavra)
+bool Arvore::consulta(Palavra palavra)
 {
     if (!this->vazia())
     return this->consulta(raiz, palavra);

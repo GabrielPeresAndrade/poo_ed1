@@ -24,13 +24,13 @@ string Dicionario::getArquivo() const
 
 bool Dicionario::inserirPalavra(Palavra palavra)
 {
-    this->getRaiz()->insere1(palavra);
+    this->getRaiz()->insere(palavra);
 }
 
 bool Dicionario::consultarPalavra(Palavra palavra)
 {
     
-    if (this->getRaiz()->consulta1(palavra))
+    if (this->getRaiz()->consulta(palavra))
         return true;
     
     else 
@@ -59,7 +59,7 @@ bool Dicionario::lerArquivo(Arvore *p)
             {
                 Palavra *p1 = new Palavra();
                 p1->setPalavra(s);
-                if (p->insere1(*p1))
+                if (p->insere(*p1))
                 {
                     arq=arq;
                 }

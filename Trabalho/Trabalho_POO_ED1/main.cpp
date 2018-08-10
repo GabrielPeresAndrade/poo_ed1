@@ -19,13 +19,18 @@ int main(int argc, char** argv)
    c->nomeTexto("a.txt");
    c->carregarTexto();
    t1 = c->apresentarContexto(*p1);
-   c->nomeArquivo("dic.txt");
+   c->nomeArquivo("b.txt");
    c->getDicionario().lerArquivo(c->getDicionario().getRaiz()); 
-//   c->getDicionario().getRaiz()->preordem(c->getDicionario().getRaiz()->getRaiz());
-//   c->getDicionario().getRaiz()->emordem(c->getDicionario().getRaiz()->getRaiz());
-//   c->palavrasSemelhantes(*p1); 
-//   c->corrigirPalavra(*p1);
-//   c->gravarTexto("vai.txt");
+   c->getDicionario().getRaiz()->preordem(c->getDicionario().getRaiz()->getRaiz());
+   c->getDicionario().getRaiz()->emordem(c->getDicionario().getRaiz()->getRaiz());
+   c->palavrasSemelhantes(*p1); 
+  try{
+     c->corrigirPalavra(*p1);
+    }catch(Excecao i)
+    {
+        
+    }
+   c->gravarTexto("vai.txt");
    if (c->adicionarPalavraDic(*p1)==1)
    {
        //adicionou
@@ -36,6 +41,11 @@ int main(int argc, char** argv)
        //nao adicionou
        c->palavrasSemelhantes(*p1); 
    }
-   
+   c->corrigirManualmente(*p1,"goladas");
+   c->listarErros();
+   cout << endl;
+   c->mostrarErros();
+   c->ignorarErro(3);
+   c->mostrarErros();
    return(0);
 }

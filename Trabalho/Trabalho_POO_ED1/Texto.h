@@ -7,6 +7,7 @@
 #include <string>
 #include "Palavra.h"
 #include "Excecao.h"
+
 using namespace std;
 
 class Texto {
@@ -18,6 +19,7 @@ public:
     
     //Metodos Gets e Sets
     string getArquivo()const;
+    int getContador()const;
     void setArquivo(string Arquivo);
     Palavra percorreTexto();
     Palavra percorreTexto(int nPalavra);
